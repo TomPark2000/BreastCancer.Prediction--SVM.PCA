@@ -1,7 +1,9 @@
 # Breast Cancer Prediction with Principal Component Analysis and Support Vector Machines 
 
 ## Project Overview
-**The primary objective of this project is to create an algorithm to predict whether or not a breast cancer is benign or malignant based off the characteristics of the cell nuclei that are present. There are multiple variables within this data set, so I leveraged Principal Component Analysis and Support Vector Machines to create my algorithm. My algorithm is able to predict whether the cancer is benign or malignant with a 94% overall acccuracy and a 93% F1-score for benign, and 95% score for malignant.** The dataset is the Breast Cancer Wisconsin (Diagnostic) dataset provided by the University of Wisconsin (1995). 
+**The primary objective of this project is to create an algorithm to predict whether or not a breast cancer is benign or malignant based off the characteristics of the cell nuclei that are present. This is a high dimensional data set with multiple variables, so I leveraged Principal Component Analysis and Support Vector Machines to create my algorithm. My algorithm is able to predict whether the cancer is benign or malignant with a 95% overall acccuracy and a 94% F1-score for benign, and 96% F-1 score for malignant.** 
+
+The data is from the Breast Cancer Wisconsin (Diagnostic) dataset provided by the University of Wisconsin (1995). 
 
 The characteristics of the cell nuclei within the data set include:
 - radius (mean of distances from center to points on the perimeter)
@@ -20,7 +22,10 @@ The characteristics of the cell nuclei within the data set include:
 ## Libraries Used
 numpy, pandas, matplotlib, seaborn, sklearn
 
-## Exploratory Data Analysis
+## Principal Component Analysis
+
+AS mentioned before, this is a high dimensional Da
+
 ### Plotting Time on Website and Time on App to Yearly Amount Spent:
 Since we are trying to determine whether to focus efforts on their mobile or website experience, I plotted "Time on App" and "Time on Website" vs. "Yearly Amount Spent" in order to visualize the correlations. From these two graphs, I can see that Time on App has a higher correlation to Yearly Amount Spent compared to Time on Website.
 ![](images/LR_eda1.png) ![](images/LR_eda2.png)
