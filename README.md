@@ -22,63 +22,48 @@ The characteristics of the cell nuclei within the data set include:
 ## Libraries Used
 numpy, pandas, matplotlib, seaborn, sklearn
 
-## Principal Component Analysis
+## Principal Component Analysis (PCA)
 
-AS mentioned before, this is a high dimensional Da
+Aa mentioned before, this is a high dimensional Dataset with 30 features/attributes. So I used Principal Component Analysis in order to reduce this dimensionality from 30 to 3 and focus on the highest variance components. On top of dimensionality reduction, PCA is powerful for this task because it allows features to be compared on equal footing after scaling, reduces the risk of overfitting the algorithm, helps understand the structure of the data by highlighting variables most strongly correlated with the principal components, and avoids multicollinearity. 
 
-### Plotting Time on Website and Time on App to Yearly Amount Spent:
-Since we are trying to determine whether to focus efforts on their mobile or website experience, I plotted "Time on App" and "Time on Website" vs. "Yearly Amount Spent" in order to visualize the correlations. From these two graphs, I can see that Time on App has a higher correlation to Yearly Amount Spent compared to Time on Website.
-![](images/LR_eda1.png) ![](images/LR_eda2.png)
+I scaled the data before applying PCA to maximize the variance of the features, give equal weight to all features, and more. I then fit it into and transformed the dataset. I then applied PCA to the scaled dataset with 3 principal components. I originally reduced it to 2 components and tried other amounts, but found that 3 princial components ultimately led to the most accurate algorithm. 
 
+Below is a visualization for all 3 principal components:
 
-### Plotting ALL Relationships:
-I wanted to get a snapshot of all the relationships in the entire dataset, so I created a pairplot on the entire dataset. Based off this plot, **the most correlated feature with Yearly Amount Spent is Length of Membership.**
+![](images/BC_v1.png)
 
-![](images/LR_eda4.png)
+Below is a visualization for the first 2 principal components:
 
-I created a linear model plot of the Yearly Amount Spent vs. Length of Membership
+![](images/BC_v2.png)
 
-![](images/LR_eda5.png)
+### Interpreting the Components
+Below is a heatmap that visualizes the relationship between the three principal components and the features with the rows being the principal components and the columns being the features. The colors represent how correlated the specific feature is to the principal component, with a yellow color being the most positively correlated and a purple color being the most negatively correlated.
 
-
-
-## Linear Regression Model and Predictions
-I created testing and training data, with the x-values being "Avg. Session Length", "Time on App", "Time on Website", and "Length of Membership", and the y-value being "Yearly Amount Spent". I then fit my linear regression model to the training data.
+![](images/BC_heat.png)
 
 
-## Evaluation of Model Predictions
+## SVM Algorithm
+I split the testing and training data and applied a Support Vector Classifier to my model. Support Vector Machines are good for this situation because they are effective in high dimensional datasets, binary classifications, feature transformation, and clinical predictions. I then used this model to make precitions on the testing data.
 
-The model predicted what the Y values would be for the the test data. I plotted out the Predicted Values and the Actual Values on a scatter plot and from this visualization, it seems that the model did pretty well. For context, a perfectly diagonal line would indicate a perfect model on the test data. 
+### Initial Predictions and Evaluations
+Belows is the confusion matrix and classification report for the predictions. The initial algorithm did decent, with a 92% overall accuracy and a 90% F1-score for benign and 94% F-1 score for malignant. 
 
-![](images/LR_pred.png)
+![](images/BC_evl1.png)
 
-For the mathematical evaluation of the model:
-
-Root Mean Squared Error: 8.934
-
-Mean Absolute Error: 7.228
-
-Variance Score = 0.989
-
-The model had a ~9% RMSE and ~99% of the variance is explained by my model, which means that it's a very good fit. This is also supported by the residuals visulization below: 
-
-![](images/LR_resid.png)
+However, due to the severity of falsely diagnosing a cancer as benign or malignant, I wanted to improve this algorithm...
 
 
-## Conclusion and Findings
+## Revising the Parameters for the Algorithm
+I used a GridSearch in order to test different parameters. I found that a C value of 5000 and gamma value of 0.005 was ideal for the model's complexity control, data characteristics, and performance. 
 
-So, should the company focus their efforts on website development or their mobile app? To answer this question in an effective way, I found the coefficients of my model:
+### FINAL Predictions and Evaluations
+Belows is the confusion matrix and classification report for the predictions. The initial algorithm performed better with a 96% overall accuracy and a 94% F1-score for benign and 96% F-1 score for malignant.
 
-![](images/LR_coeff.png)
-
-To interpret the coefficients, for all other features fixed:
--a 1 unit increase in **Avg. Session Length** is associated with an **increase of 25.98 total dollars spent**.
-
--a 1 unit increase in **Time on App** is associated with an **increase of 38.59 total dollars spent**.
-
--a 1 unit increase in **Time on Website** is associated with an **increase of 0.19 total dollars spent**.
-
--a 1 unit increase in **Length of Membership** is associated with an **increase of 61.27 total dollars spent**.
+![](images/BC_evl2.png)
 
 
-Based on this, the company should **focus their efforts on their mobile app** because it's highly correlated with the amount of money that the customers spend.
+
+
+
+
+
