@@ -1,7 +1,7 @@
 # Breast Cancer Prediction with Principal Component Analysis and Support Vector Machines 
 
 ## Project Overview
-**The primary objective of this project is to create an algorithm to predict whether or not a breast tumor is benign (non-cancerous) or malignant (cancerous) based off the characteristics of the cell nuclei that are present. This is a high dimensional data set with multiple variables, so I leveraged Principal Component Analysis and Support Vector Machines to create my algorithm. After parameteer optimization, my algorithm is able to predict whether the tumors is benign or malignant with a 95% overall acccuracy and a 94% F1-score for benign, and 96% F-1 score for malignant.** 
+**The primary objective of this project is to create an algorithm to predict whether or not a breast tumor is benign (non-cancerous) or malignant (cancerous) based off the characteristics of the cell nuclei that are present. This is a high dimensional data set with multiple variables, so I leveraged Principal Component Analysis and Support Vector Machines to create my algorithm. After parameteer optimization, my algorithm is able to predict whether the tumors is benign or malignant with a 95% overall acccuracy and a 94% F1-score for benign, and 96% F-1 score for malignant.** The F1-score is a measure of a model's accuracy that considers both the precision (the number of true positive results divided by the number of all positive results, including those not identified correctly) and the recall (the number of true positive results divided by the number of all samples that should have been identified as positive).
 
 The data is from the Breast Cancer Wisconsin (Diagnostic) dataset provided by the University of Wisconsin (1995). 
 
@@ -46,7 +46,7 @@ Below is a heatmap that visualizes the relationship between the three principal 
 I split the testing and training data and applied a Support Vector Classifier to my model. Support Vector Machines are good for this situation because they are effective in high dimensional datasets, binary classifications, feature transformation, and clinical predictions. I then used this model to make precitions on the testing data.
 
 ### Initial Predictions and Evaluations
-Belows is the confusion matrix and classification report for the predictions. The initial algorithm did decent, with a 92% overall accuracy and a 90% F1-score for benign and 94% F-1 score for malignant. The F1-score is a measure of a model's accuracy that considers both the precision (the number of true positive results divided by the number of all positive results, including those not identified correctly) and the recall (the number of true positive results divided by the number of all samples that should have been identified as positive).
+Belows is the confusion matrix and classification report for the predictions. The initial algorithm did decent, with a 92% overall accuracy and a 90% F1-score for benign and 94% F-1 score for malignant. 
 
 ![](images/BC_evl1.png)
 
