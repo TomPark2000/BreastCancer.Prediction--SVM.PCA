@@ -3,7 +3,7 @@
 ## Project Overview
 **There are two objectives of this project**
 
-**1) to create an algorithm to predict whether or not a breast tumor is benign (non-cancerous) or malignant (cancerous) based off the characteristics of the cell nuclei that are present.**
+**1) To create an algorithm to predict whether or not a breast tumor is benign (non-cancerous) or malignant (cancerous) based off the characteristics of the cell nuclei that are present.**
 
 **2) To showcase my ability and understanding of Principal component Analysis and Support Vector Machines. Accruacy is not the main priority because I created a more accurate algorithm using Deep Learning, which is a seperate project.**
 
